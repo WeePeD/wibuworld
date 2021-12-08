@@ -1,0 +1,48 @@
+body {
+    box-sizing: border-box;
+    background-color: wheat;
+}
+
+div {
+    margin: 20px;
+}
+h1{
+    text-align: center;
+    text-shadow: 0 2px 2px rgb(65, 64, 64);
+}
+label {
+    font: 20px weight;
+}
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    border: black solid 3px;
+    border-radius: 20px;
+    max-width: fit-content;
+    position: relative;
+    margin:100px auto;
+    background-color: aliceblue;
+}
+
+.button {
+    margin-right: 80px;
+    font-size: medium;
+
+}
+
+.button>a {
+    text-decoration: none;
+    color: #000;
+}
+
+button:hover {
+    background-color: blue;
+    color: aliceblue;
+}
+input{
+    margin-left: 20px;
+    background-color: aliceblue;
+    text-align: center;
+    border: 1px solid black;
+}

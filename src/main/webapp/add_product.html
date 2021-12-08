@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style_input.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <form action="AddProduct" method="post">
+            <div id="box">
+                <div id="title">
+                    <h1>Adding Product</h1>
+                </div>
+
+                <div>
+                    <div>
+                        <label>Name: </label>
+                        <input type="text" name="name" placeholder="Input product name">
+                    </div>
+                    <div>
+                        <label>Edition:</label>
+                        <input type="text" name="edition" placeholder="Input product edition">
+                    </div>
+
+                    <div>
+                        <label>Included:</label>
+                        <input type="text" name="included" placeholder="Included">
+                    </div>
+
+                    <div>
+                        <label>Price:</label>
+                        <input type="number" name="price" placeholder="Input product price">
+                    </div>
+
+                    <div>
+                        <label>Quantity:</label>
+                        <input type="number" name="quantity" placeholder="Input product quatity">
+                    </div>
+
+                    <div>
+                        <label>Description:</label>
+                        <input id="description" type="text" name="description" placeholder="Input product description">
+                    </div>
+
+                    <div>
+                        <label>Photo:</label>
+                        <input type="text" name="imagename" placeholder="Input product photo">
+                    </div>
+                    <div class="btn-container">
+
+                        <button class="button" type="button" onclick="location.href='home.jsp'"> Return to home page </button>
+                        <button type="submit" style="border-radius: 50px ; font-size: large;"> Add </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>
