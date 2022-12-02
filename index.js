@@ -5,6 +5,10 @@ const app = express();
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 dotenv.config({path:__dirname+'/.env'})
+//Path
+const path = require('path')
+//Ejs set
+app.set('view engine', 'ejs')
 
 //Database connection
 mongoose.connect(process.env.DB_URL,{
@@ -18,6 +22,9 @@ mongoose.connect(process.env.DB_URL,{
     console.log(err)
 })
 
+//Import model
+const Product = require('./src/main/webapp/script/model/product')
+
 //Router
 const authRouter = require('./src/main/webapp/script/route/auth')
 const productRouter = require('./src/main/webapp/script/route/product')
@@ -25,17 +32,23 @@ const cartRouter = require('./src/main/webapp/script/route/cart')
 const orderRouter = require('./src/main/webapp/script/route/order')
 
 app.use(express.json())
-app.use("/style",express.static(__dirname + "/src/main/webapp/style"))
-app.use("/poster",express.static(__dirname + "/src/main/webapp/poster"))
-app.use("/picSource",express.static(__dirname + "/src/main/webapp/picSource"))
-app.use("/script",express.static(__dirname+"/src/main/webapp/script"))
-app.use("/includes",express.static(__dirname+"/src/main/webapp/includes"))
+
+app.use('/style',express.static(__dirname + '/src/main/webapp/style'))
+app.use('/poster',express.static(__dirname + '/src/main/webapp/poster'))
+app.use('/picSource',express.static(__dirname + '/src/main/webapp/picSource'))
+app.use('/script',express.static(__dirname+'/src/main/webapp/script'))
+app.use('/includes',express.static(__dirname+'/src/main/webapp/includes'))
 
 app.get('/', (req,res) => {
-   res.sendFile(__dirname + "/src/main/webapp/view/index.html")
+   res.render(__dirname + '/src/main/webapp/views/index')
+   
 })
 app.get('/home.html',(req,res) => {
-    res.sendFile(__dirname + "/src/main/webapp/view/home.html")
+    Product.find({}, (err,products) => {
+        if (err) res.json({message : err})
+        app.locals['productImg'] = products.productImg.url
+        res.render(__dirname+'/src/main/webapp/views/home',{ productlist : products})
+    })
 })
 
 
@@ -45,5 +58,5 @@ app.use('/api/cart',cartRouter)
 app.use('/api/order',orderRouter)
 
 const listener = app.listen(process.env.PORT, () => {
-    console.log("Backend server is running!");
+    console.log('Backend server is running!');
   });

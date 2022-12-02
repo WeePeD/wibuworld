@@ -32,7 +32,7 @@ router.post('/', async(req,res) => {
             productName : req.body.productName,
             productDescription : req.body.productDescription,
             productImg : req.body.productImg,
-            productPrce : req.body.productPrce
+            productPrice : req.body.productPrice
         })
         const saveProduct = await newProduct.save()
         res.status(201)

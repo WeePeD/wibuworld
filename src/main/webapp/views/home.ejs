@@ -41,20 +41,20 @@
         <div class="movie-plate">
             <p class="text-type">Update</p>
             <div class="movie-list">
-                <c:forEach var = "animeproduct" items="${product_list}">
-                    <form action="DetailController" method="get">
-                        <input type="hidden" name="action" value="detail">
-                        <input type="hidden" name="product_id" value="${animeproduct.getID()}">
-                        <button type="submit"   style="background-color: transparent; border: none; ">
-                            <div id="1" class="movie-component">
-                            <img class="poster" src="poster/${animeproduct.getImageName()}" type="submit" alt="${animeproduct.getImageName()}">
-                                
-                            <div class="text-title" type="submit">${animeproduct.getName()}</div>
-                            <div class="cost text-title">${animeproduct.getPriceCurrencyFormat()}</div>
-                            </div>
-                        </button>
-                    </form>
-                </c:forEach>
+                <% productlist.forEach(product =>{ %>
+                        <form action="DetailController" method="get">
+                            <input type="hidden" name="action" value="detail">
+                            <input type="hidden" name="product_id" value="${animeproduct.getID()}">
+                            <button type="submit"   style="background-color: transparent; border: none; ">
+                                <div id="1" class="movie-component">
+                                    <img class="poster"  src=<%="product.productImg"%> type="submit" alt="${animeproduct.getImageName()}">
+                                    
+                                    <div class="text-title" type="submit"><%= product.productName %></div>
+                                    <div class="cost text-title"><%= product.product %></div>
+                                </div>
+                            </button>
+                        </form>
+                <% }) %>
             </div>
         </div>
         
