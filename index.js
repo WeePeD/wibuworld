@@ -46,7 +46,6 @@ app.get('/', (req,res) => {
 app.get('/home.html',(req,res) => {
     Product.find({}, (err,products) => {
         if (err) res.json({message : err})
-        app.locals['productImg'] = products.productImg.url
         res.render(__dirname+'/src/main/webapp/views/home',{ productlist : products})
     })
 })
