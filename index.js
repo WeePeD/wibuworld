@@ -38,6 +38,7 @@ app.use('/poster',express.static(__dirname + '/src/main/webapp/poster'))
 app.use('/picSource',express.static(__dirname + '/src/main/webapp/picSource'))
 app.use('/script',express.static(__dirname+'/src/main/webapp/script'))
 app.use('/includes',express.static(__dirname+'/src/main/webapp/includes'))
+app.use('/font',express.static(__dirname+'/src/main/webapp/font'))
 
 app.get('/', (req,res) => {
    res.render(__dirname + '/src/main/webapp/views/index')

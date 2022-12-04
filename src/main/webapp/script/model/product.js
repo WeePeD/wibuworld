@@ -1,10 +1,15 @@
 const mongoose = require('mongoose');
+const product = class{
 
+}
 const productSchema = new mongoose.Schema({
     productName : { type: String , require: true},
+    productType : { type: String , require: true},
+    productAnime : { type: String, require: true},
     productDescription : { type: String},
     productImg : { type: String, require: true},
-    productPrice : { type: Number, require: true}
+    productPrice : { type: Number, require: true},
+
 },
 {
     timestamp : true

@@ -13,7 +13,7 @@ html{
 }
 
 #nav{
-
+  display: inline-block;
 }
 
 #nav li{
@@ -32,4 +32,48 @@ html{
   color: #EA6016;
 }
 
+.header .search-btn{
+  padding: 0px 21px;
+  cursor: pointer;
+  background: #39363A;
+  border-radius: 50px;
+
+}
+
+
+
+.header .search-icon{
+  color: #fff;
+  font-size: 20px; 
+  line-height: 50px;
+}
+
+.header .search-btn .search-text{
+  width: 200px;
+  height: 35px;
+  background: none;
+  border: none;
+  outline: none;
+  color: #FAFAFA;
+  transition: 0.50s ease;
+}
+
+.signup-btn{
+  margin-left: 120px;
+  border-width:1px ;
+  border-style: solid;
+  border-color: white;
+  border-radius: 50px;
+}
+
+.signup-btn:hover{
+  border-color: #EA6016 ;
+}
+
+.signin-btn{
+  margin-left: 20px;
+  border-style: solid;
+  background-color:  #EA6016;
+  border-radius: 50px;
+}
 
