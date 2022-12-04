@@ -9,14 +9,25 @@
     <link class="icon" rel="shortcut icon" type="image/png" href="./picSource/icon2.png" />
     <link rel="stylesheet" href="../style/reset.css">>
     <link href="../style/clientStyle.css" rel="stylesheet" /> 
+    <link href="../style/header.css" rel="stylesheet">
     <title>WibuWorld</title>
 </head>
 
 <body style="background-image: url('../picSource/wallpaper.gif');background-repeat:repeat; background-size: 100%; ">
+    <div class="header">
+        <ul id="nav">
+            <li><a href="">Home</a></li>
+            <li><a href="">Figure</a></li>
+            <li><a href="">Anime</a></li>
+            <li><a href="">Shoes</a></li>
+            <li><a href="">Manga</a></li>
+            <li><a href="">Combo</a> </li>
+        </ul>
+    </div>
     <div class="container">
         <div class="v4_722 ">
 
-            <div style="background-color: rgb(51, 48, 48);">
+            <div>
                 <p class="text-type">Recommend</p>
             </div>
             <div class="slideshow-container">
@@ -47,7 +58,7 @@
                             <input type="hidden" name="product_id" value="${animeproduct.getID()}">
                             <button type="submit"   style="background-color: transparent; border: none; ">
                                 <div id="1" class="movie-component">
-                                    <img class="poster"  src="240856547_361595905672830_2176693447968480781_n.jpg" type="submit" alt="${animeproduct.getImageName()}">
+                                    <img class="poster"  src="../poster/<%= product.productImg%>" type="submit" alt="${animeproduct.getImageName()}">
                                     
                                     <div class="text-title" type="submit"><%= product.productName %></div>
                                     <div class="cost text-title"><%= product.product %></div>

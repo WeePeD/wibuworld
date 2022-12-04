@@ -9,14 +9,13 @@ body {
 }
 .container {
   display: flex;
-  width: 1061px;
+  width: 95%;
   height: 4517px;
-  background: rgba(51,51,51,1);
   opacity: 1;
   position: relative;
   margin: 0 auto;
   overflow: hidden;
- 
+  opacity: 1;
 
 }
 
@@ -102,6 +101,7 @@ body {
   position: absolute;
 
 }
+
 .v4_736 {
   height: 100px;
   width:  150px;
@@ -993,16 +993,16 @@ img {vertical-align: middle;}
 }
 .text-type{
   font-size: 40px;
-  color: rgb(5, 5, 5);
+  color: white;
   font-family:Arial, Helvetica, sans-serif;
   font-weight:bold;
-  background-color: rgb(187, 187, 187);
-  border: black solid 2px;
   padding: 15px  80px 15px 15px ;
-  border-bottom-right-radius: 50%;
-  border-top-right-radius: 50%;
   width: fit-content;
 }
+.text-box{
+  background-color: red;
+}
+
 .movie-plate{
   width: 100%;
   height: 3030px ;
