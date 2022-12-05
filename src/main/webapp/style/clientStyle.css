@@ -1,16 +1,15 @@
 * {
   box-sizing: border-box;
 }
+
 body {
   font-size: 14px;
   align-items: center;
   display: block;
-  
 }
 .container {
   display: flex;
   width: 95%;
-  height: 4517px;
   opacity: 1;
   position: relative;
   margin: 0 auto;
@@ -211,108 +210,6 @@ cursor: pointer;
   color: #fff;
 }
 
-.v4_1005 {
-  width: 1061px;
-  height: 560px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 3960px;
-  left: 0px;
-  overflow: hidden;
-}
-.v4_1006 {
-  width: 100%;
-  height: 560px;
-  background: rgba(46,46,46,1);
-  opacity: 1;
-  position: absolute;
-  top: 0px;
-  left: 160px;
-  overflow: hidden;
-}
-
-#imgFoot{ 
-  margin-left: 310px;
-}
-.v4_1007 {
-  width: 40%;
-  height: 560px;
-  background: rgba(61,61,61,1);
-  opacity: 1;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  overflow: hidden;
-}
-.v4_1008 {
-  width: 708px;
-  height: 24px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  margin: 24px;
-  opacity: 1;
-  position: absolute;
-  top: 450px;
-  left: 400px;
-  overflow: hidden;
-}
-.v4_1009 {
-  width: 211px;
-  height: 24px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  margin: 8px;
-  opacity: 1;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  overflow: hidden;
-}
-
-.v4_1011 {
-  width: 179px;
-  color: rgba(255,255,255,1);
-  position: absolute;
-  top: 0px;
-  left: 32px;
-  font-family: Inter;
-  font-weight: Regular;
-  font-size: 14px;
-  opacity: 1;
-  text-align: left;
-}
-.v4_1012 {
-  width: 282px;
-  height: 24px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  margin: 8px;
-  opacity: 1;
-  position: absolute;
-  top: 0px;
-  left: 235px;
-  overflow: hidden;
-}
- 
-.v4_1014 {
-  width: 250px;
-  color: rgba(255,255,255,1);
-  position: absolute;
-  top: 0px;
-  left: 32px;
-  font-family: Inter;
-  font-weight: Regular;
-  font-size: 14px;
-  opacity: 1;
-  text-align: left;
-}
-
 .v4_1017 {
   width: 135px;
   color: rgba(255,255,255,1);
@@ -505,149 +402,7 @@ cursor: pointer;
   opacity: 1;
   text-align: left;
 }
-.v4_1033 {
-  width: 375px;
-  height: 368px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 93px;
-  left: 50px;
-  overflow: hidden;
-}
-.v4_1034 {
-  width: 320px;
-  color: rgba(229,229,229,1);
-  position: absolute;
-  top: 120px;
-  left: 1px;
-  font-family: DM Sans;
-  font-weight: Regular;
-  font-size: 16px;
-  opacity: 1;
-  text-align: left;
-}
-.v4_1035 {
-  width: 282px;
-  height: 64px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 304px;
-  left: 0px;
-  overflow: hidden;
-}
-.v4_1036 {
-  width: 282px;
-  height: 64px;
-  background: rgba(82,82,82,1);
-  opacity: 1;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  overflow: hidden;
-}
-.v4_1037 {
-  width: 151px;
-  color: rgba(154,154,176,1);
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  font-family: DM Sans;
-  font-weight: Regular;
-  font-size: 16px;
-  opacity: 1;
-  text-align: left;
-}
-.v4_1038 {
-  width: 48px;
-  height: 48px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 8px;
-  left: 225px;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  overflow: hidden;
-}
-.v4_1039 {
-  width: 48px;
-  height: 48px;
-  background: rgba(254,213,48,1);
-  opacity: 1;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  overflow: hidden;
-}
-.v4_1040 {
-  width: 24px;
-  height: 24px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  overflow: hidden;
-}
-.v4_1041 {
-  width: 24px;
-  height: 24px;
-  background: rgba(255,255,255,1);
-  opacity: 1;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-  overflow: hidden;
-}
- 
-.v4_1043 {
-  width: 130px;
-  color: rgba(255,255,255,1);
-  position: absolute;
-  top: 256px;
-  left: 0px;
-  font-family: DM Sans;
-  font-weight: Bold;
-  font-size: 16px;
-  opacity: 1;
-  text-align: left;
-}
-.v4_1044 {
-  width: 375px;
-  color: rgba(255,255,255,1);
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  font-family: DM Sans;
-  font-weight: Medium;
-  font-size: 64px;
-  opacity: 1;
-  text-align: left;
-}
+
   
 .v4_695 {
   width: 100%;
@@ -1002,42 +757,48 @@ img {vertical-align: middle;}
 .text-box{
   background-color: red;
 }
-
-.movie-plate{
+.section{
+  display: inline-block;
+  flex-wrap: wrap ;
+}
+.product-plate{
   width: 100%;
-  height: 3030px ;
+  height: 100% ;
   margin-top: 800px;
   
 }
-.movie-list{
+.product-list{
   display: flex;
   flex-wrap: wrap;
-  background-color: rgb(107, 104, 104);
-  height: 3020px;
+  height: 100%;
   margin: 25px;
-  border-radius: 20px;
   align-content:flex-start;
   justify-content: center;
   align-items: center;
+  
 }
-.movie-component{
+.product-component{
+  border-radius: 10px;
   width: 260px;
   height: 320px;
   margin:10px 7px 10px 7px;
-  background-color: black;
   display: flex;
   position: relative;
   align-self: flex-end;
   align-items: center;
   flex-direction: column;
   justify-content: space-evenly;
+
 }
+
+
 .text-title{
   font-size: 15px;
   color:yellow;
   font-weight:bold ;
   width: 230px;
   margin-left: 5%;
+  margin-top: 10px;
   text-align: center;
   
 }
@@ -1051,9 +812,17 @@ img {vertical-align: middle;}
 }
 
 .poster{
+  transition: transform 0.5s;
   width: 240px;
   height: 260px;
   top: 100px;
+  border-radius: 10px;
+}
+.poster:hover{
+  color: #EA6016;
+  box-shadow: 0 5px 15px #EA6016;
+  transform: scale(1.1); 
+  transition: 0.5s ease;
 }
  h2{
    font-size: larger;
@@ -1066,4 +835,15 @@ img {vertical-align: middle;}
 }
 img{
   cursor: pointer;
+}
+
+.recommended-poster{
+  width: 100%;
+  height: 10px;
+}
+
+.recommended-poster-conan{
+  max-width:100%;
+  max-height:100%;
+  border-radius: 10px;
 }

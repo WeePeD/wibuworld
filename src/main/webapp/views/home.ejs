@@ -11,26 +11,20 @@
     <link href="../style/clientStyle.css" rel="stylesheet" /> 
     <link href="../style/header.css" rel="stylesheet">
     <link href="../font/themify-icons.css" rel="stylesheet">
+    <link href="../style/footer.css" rel="stylesheet">
     <title>WibuWorld</title>
 </head>
 
 <body style="background-image: url('../picSource/wallpaper.gif');background-repeat:repeat; background-size: 100%; ">
     <div class="header">
         <ul id="nav">
+            <li class="home-icon"><a href="/home.html"><img src="../picSource/icon2.png"></a></li>
             <li><a href="">Home</a></li>
             <li><a href="">Figure</a></li>
             <li><a href="">Anime</a></li>
             <li><a href="">Fashion</a></li>
             <li><a href="">Manga</a></li>
             <li><a href="">Combo</a> </li>
-            <li>   
-                <div class="search-btn">
-                    <form action="" method="get">
-                        <input type="text" class="search-text" placeholder="Search">
-                        <button type="submit"><i class="search-icon ti-search"></i></button>
-                    </form>
-                </div>
-            </li>
             <li>
                 <div class="signup-btn">
                     <a href="">Sign up</a>
@@ -41,13 +35,20 @@
                     <a href="">Sign in</a>
                 </div>
             </li>
+            <li><div class="search-btn">
+                <form action="" method="get">
+                    <input type="text" class="search-text" placeholder="Search">
+                    <button type="submit" class="search-icon"><i class="search-icon ti-search"></i></button>
+                </form>
+            </div>
+            </li>
         </ul>
     </div>
     <div class="container">
         <div class="v4_722 ">
 
             <div>
-                <p class="text-type">Recommend</p>
+                <p class="text-type">HOT DEALS</p>
             </div>
             <div class="slideshow-container">
                 <slider>
@@ -68,61 +69,124 @@
 
             </div>
         </div>
-        <div class="movie-plate">
-            <p class="text-type">Update</p>
-            <div class="movie-list">
-                <% productlist.forEach(product =>{ %>
-                        <form action="DetailController" method="get">
-                            <input type="hidden" name="action" value="detail">
-                            <input type="hidden" name="product_id" value="${animeproduct.getID()}">
-                            <button type="submit"   style="background-color: transparent; border: none; ">
-                                <div id="1" class="movie-component">
-                                    <img class="poster"  src="../poster/<%= product.productImg%>" type="submit" alt="${animeproduct.getImageName()}">
-                                    
-                                    <div class="text-title" type="submit"><%= product.productName %></div>
-                                    <div class="cost text-title"><%= product.product %></div>
-                                </div>
-                            </button>
-                        </form>
-                <% }) %>
-            </div>
-        </div>
-        
-        
-        
-        <div class="v4_1005">
-            <div class="v4_1006">
-                <img id="imgFoot" src="./picSource/3BBF.gif">
-            </div>
-            <div class="v4_1007"></div>
-           
-           
-           
-            <div class="v4_1008">
-                <div class="v4_1009">
-                    <div class="name"></div><span class="v4_1011">Ho Chi Minh City, Viet Nam</span>
+        <div class="product-plate">
+            
+                <p class="text-type">RECOMMEND Manga</p>
+                <div class="product-list">
+                    <% productlist.forEach(product =>{ %>
+                        <% if (product.productType == "Manga"){ %>
+                            <form action="DetailController" method="get">
+                                <input type="hidden" name="action" value="detail">
+                                <input type="hidden" name="product_id" value="${animeproduct.getID()}">
+                                <button type="submit"   style="background-color: transparent; border: none; ">
+                                    <div id="1" class="product-component">
+                                        <img class="poster"  src="../poster/<%= product.productImg%>" type="submit" alt="<%= product.productName%>">
+                                        
+                                        <div class="text-title" type="submit"><%= product.productName %></div>
+                                        <div class="cost text-title"><%= product.productPrice %></div>
+                                    </div>
+                                </button>
+                            </form>
+                    <% }}) %>
                 </div>
-                <div class="v4_1012">
-                    <a href="mailto:WibuWorld.entertainment@gmail.com">
-                        <div class="name"></div><span class="v4_1014">WibuWorld.entertainment@gmail.com </span>
-                    </a>
-                </div>
-            </div>
 
-            <div class="v4_1033"><span class="v4_1034">Enjoy your favorite anime with your waifu.</span>
-                <div class="v4_1035">
-                    <div class="v4_1036"></div><span class="v4_1037">Insert your mail here</span>
-                    <div class="v4_1038">
-                        <div class="v4_1039"></div>
-                        <div class="v4_1040">
-                            <div class="v4_1041"></div>
-                            <div class="name"></div>
-                        </div>
-                    </div>
-                </div><span class="v4_1043">Join New Wibu</span><span class="v4_1044">Wibu World</span>
-            </div>
+            
+                <p class="text-type">HOT Anime</p>
+                <div class="product-list">
+                    <% productlist.forEach(product =>{ %>
+                        <% if (product.productType == "Anime"){ %>
+                            <form action="DetailController" method="get">
+                                <input type="hidden" name="action" value="detail">
+                                <input type="hidden" name="product_id" value="${animeproduct.getID()}">
+                                <button type="submit"   style="background-color: transparent; border: none; ">
+                                    <div id="1" class="product-component">
+                                        <img class="poster"  src="../poster/<%= product.productImg%>" type="submit" alt="<%= product.productName%>">
+                                        
+                                        <div class="text-title" type="submit"><%= product.productName %></div>
+                                        <div class="cost text-title"><%= product.productPrice %></div>
+                                    </div>
+                                </button>
+                            </form>
+                    <% }}) %>
+                </div>  
+         
+            
+                <p class="text-type">Conan Stuffs</p>
+                <div class="product-list">
+                    <form>
+                        <img class="recommended-poster-conan" src="../poster/conan_poster.png">
+                    </form>
+                    <% productlist.forEach(product =>{ %>
+                        <% if (product.productAnime == "Conan"){ %>
+                            <form action="DetailController" method="get">
+                                <input type="hidden" name="action" value="detail">
+                                <input type="hidden" name="product_id" value="${animeproduct.getID()}">
+                                <button type="submit"   style="background-color: transparent; border: none; ">
+                                    <div id="1" class="product-component">
+                                        <img class="poster"  src="../poster/<%= product.productImg%>" type="submit" alt="<%= product.productName%>">
+                                        
+                                        <div class="text-title" type="submit"><%= product.productName %></div>
+                                        <div class="cost text-title"><%= product.productPrice %></div>
+                                    </div>
+                                </button>
+                            </form>
+                    <% }}) %>
+                </div>  
+      
+            
+                <p class="text-type">FIGURE</p>
+                <div class="product-list">
+                    <% productlist.forEach(product =>{ %>
+                        <% if (product.productType == "Figure"){ %>
+                            <form action="DetailController" method="get">
+                                <input type="hidden" name="action" value="detail">
+                                <input type="hidden" name="product_id" value="${animeproduct.getID()}">
+                                <button type="submit"   style="background-color: transparent; border: none; ">
+                                    <div id="1" class="product-component">
+                                        <img class="poster"  src="../poster/<%= product.productImg%>" type="submit" alt="<%= product.productName%>">
+                                        
+                                        <div class="text-title" type="submit"><%= product.productName %></div>
+                                        <div class="cost text-title"><%= product.productPrice %></div>
+                                    </div>
+                                </button>
+                            </form>
+                    <% }}) %>
+                </div>  
+        
+            
+                <p class="text-type">Fashion</p>
+                <div class="product-list">
+                    <% productlist.forEach(product =>{ %>
+                        <% if (product.productType == "Fashion"){ %>
+                            <form action="DetailController" method="get">
+                                <input type="hidden" name="action" value="detail">
+                                <input type="hidden" name="product_id" value="${animeproduct.getID()}">
+                                <button type="submit"   style="background-color: transparent; border: none; ">
+                                    <div id="1" class="product-component">
+                                        <img class="poster"  src="../poster/<%= product.productImg%>" type="submit" alt="<%= product.productName%>">
+                                        
+                                        <div class="text-title" type="submit"><%= product.productName %></div>
+                                        <div class="cost text-title"><%= product.productPrice %></div>
+                                    </div>
+                                </button>
+                            </form>
+                    <% }}) %>
+                </div>  
+            
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-name">
+            <h1>WibuWorld</h1>
+            <img src="../picSource/icon2.png">
         </div>
 
+        <div class="icon">
+            <a href="https://github.com/WeePeD/wibuworld.git" class="ti-github"></a>
+            <a href="https://www.facebook.com/profile.php?id=100035920906901" class="ti-facebook"></a>
+            <a href="www.linkedin.com/in/weeped" class="ti-linkedin"></a>
+        </div>
+        <h1>Powered by WeePeD</h1>
     </div>
 </body>
 

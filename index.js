@@ -44,7 +44,7 @@ app.get('/', (req,res) => {
    res.render(__dirname + '/src/main/webapp/views/index')
    
 })
-app.get('/home.html',(req,res) => {
+app.get('/home.html',(req,res,next) => {
     Product.find({}, (err,products) => {
         if (err) res.json({message : err})
         res.render(__dirname+'/src/main/webapp/views/home',{ productlist : products})
