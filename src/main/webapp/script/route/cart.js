@@ -1,5 +1,11 @@
 const router = require('express').Router()
 const Cart = require('../model/cart')
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
+
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 
 //GET
 router.get('/detail/:id', async(req,res) => {
@@ -18,7 +24,7 @@ router.get('/', async (req, res) => {
     try {
         carts = await Cart.find();
         res.status(200)
-           .json(cart);
+           .json(carts);
     } catch (e) {
         res.status(500)
            .json(e);
@@ -42,11 +48,11 @@ router.post('/', async (req, res) => {
   });
 
 //UPDATE
-router.put('/:id', async (req, res) => {
+router.post('/addtocart/:id', async (req, res) => {
     try {
-      const updatedCart = await Cart.findByIdAndUpdate(req.params.id,{$set: req.body},{ new: true });
-      res.status(200)
-         .json(updatedCart);
+        const updatedCart = await Cart.findByIdAndUpdate(req.params.id,{$push: req.body},{ new: true });
+        res.status(200)
+           .json(updatedCart);
     } catch (e) {
       res.status(500)
          .json(e);

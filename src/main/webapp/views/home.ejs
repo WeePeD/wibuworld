@@ -2,10 +2,6 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css"
-        integrity="sha384-7ynz3n3tAGNUYFZD3cWe5PDcE36xj85vyFkawcF6tIwxvIecqKvfwLiaFdizhPpN" crossorigin="anonymous">
     <link class="icon" rel="shortcut icon" type="image/png" href="./picSource/icon2.png" />
     <link rel="stylesheet" href="../style/reset.css">>
     <link href="../style/clientStyle.css" rel="stylesheet" /> 
@@ -16,15 +12,16 @@
 </head>
 
 <body style="background-image: url('../picSource/wallpaper.gif');background-repeat:repeat; background-size: 100%; ">
+    <!---------------- BEGIN HEADER --------------------->
     <div class="header">
         <ul id="nav">
-            <li class="home-icon"><a href="/home.html"><img src="../picSource/icon2.png"></a></li>
-            <li><a href="">Home</a></li>
-            <li><a href="">Figure</a></li>
-            <li><a href="">Anime</a></li>
-            <li><a href="">Fashion</a></li>
-            <li><a href="">Manga</a></li>
-            <li><a href="">Combo</a> </li>
+            <li class="home-icon"><a href="/home"><img src="../picSource/icon2.png"></a></li>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/select_product/Figure">Figure</a></li>
+            <li><a href="/select_product/Anime">Anime</a></li>
+            <li><a href="/select_product/Fashion">Fashion</a></li>
+            <li><a href="/select_product/Manga">Manga</a></li>
+            <li><a href="/select_product/Combo">Combo</a> </li>
             <li>
                 <div class="signup-btn">
                     <a href="">Sign up</a>
@@ -36,17 +33,21 @@
                 </div>
             </li>
             <li><div class="search-btn">
-                <form action="" method="get">
-                    <input type="text" class="search-text" placeholder="Search">
+                <form action="/search_product" method="get">
+                    <input type="text" id="search" class="search-text" placeholder="Search">
                     <button type="submit" class="search-icon"><i class="search-icon ti-search"></i></button>
                 </form>
             </div>
             </li>
         </ul>
     </div>
-    <div class="container">
-        <div class="v4_722 ">
+    <!---------------- END HEADER --------------------->
 
+    <!---------------- BEGIN CONTAINER --------------------->
+    <div class="container">
+        
+        <!---------------- BEGIN SLIDER --------------------->
+        <div class="v4_722 ">
             <div>
                 <p class="text-type">HOT DEALS</p>
             </div>
@@ -64,20 +65,18 @@
                 <span class="dot" onclick="currentSlide(1)"></span>
                 <span class="dot" onclick="currentSlide(2)"></span>
                 <span class="dot" onclick="currentSlide(3)"></span>
-                <span class="dot" onclick="currentSlide(4)"></span>
-                <span class="dot" onclick="currentSlide(5)"></span>
-
             </div>
         </div>
+        <!---------------- END SLIDER --------------------->
+
+
+        <!---------------- BEGIN PRODUCT PLATE --------------------->
         <div class="product-plate">
-            
                 <p class="text-type">RECOMMEND Manga</p>
                 <div class="product-list">
                     <% productlist.forEach(product =>{ %>
                         <% if (product.productType == "Manga"){ %>
-                            <form action="DetailController" method="get">
-                                <input type="hidden" name="action" value="detail">
-                                <input type="hidden" name="product_id" value="${animeproduct.getID()}">
+                            <form action="/detail/<%= product._id %>" method="get">
                                 <button type="submit"   style="background-color: transparent; border: none; ">
                                     <div id="1" class="product-component">
                                         <img class="poster"  src="../poster/<%= product.productImg%>" type="submit" alt="<%= product.productName%>">
@@ -90,14 +89,11 @@
                     <% }}) %>
                 </div>
 
-            
                 <p class="text-type">HOT Anime</p>
                 <div class="product-list">
                     <% productlist.forEach(product =>{ %>
                         <% if (product.productType == "Anime"){ %>
-                            <form action="DetailController" method="get">
-                                <input type="hidden" name="action" value="detail">
-                                <input type="hidden" name="product_id" value="${animeproduct.getID()}">
+                            <form action="/detail/<%= product._id %>" method="get">
                                 <button type="submit"   style="background-color: transparent; border: none; ">
                                     <div id="1" class="product-component">
                                         <img class="poster"  src="../poster/<%= product.productImg%>" type="submit" alt="<%= product.productName%>">
@@ -110,7 +106,6 @@
                     <% }}) %>
                 </div>  
          
-            
                 <p class="text-type">Conan Stuffs</p>
                 <div class="product-list">
                     <form>
@@ -118,9 +113,7 @@
                     </form>
                     <% productlist.forEach(product =>{ %>
                         <% if (product.productAnime == "Conan"){ %>
-                            <form action="DetailController" method="get">
-                                <input type="hidden" name="action" value="detail">
-                                <input type="hidden" name="product_id" value="${animeproduct.getID()}">
+                            <form action="/detail/<%= product._id %>" method="get">
                                 <button type="submit"   style="background-color: transparent; border: none; ">
                                     <div id="1" class="product-component">
                                         <img class="poster"  src="../poster/<%= product.productImg%>" type="submit" alt="<%= product.productName%>">
@@ -133,14 +126,11 @@
                     <% }}) %>
                 </div>  
       
-            
                 <p class="text-type">FIGURE</p>
                 <div class="product-list">
                     <% productlist.forEach(product =>{ %>
                         <% if (product.productType == "Figure"){ %>
-                            <form action="DetailController" method="get">
-                                <input type="hidden" name="action" value="detail">
-                                <input type="hidden" name="product_id" value="${animeproduct.getID()}">
+                            <form action="/detail/<%= product._id %>" method="get">
                                 <button type="submit"   style="background-color: transparent; border: none; ">
                                     <div id="1" class="product-component">
                                         <img class="poster"  src="../poster/<%= product.productImg%>" type="submit" alt="<%= product.productName%>">
@@ -153,14 +143,11 @@
                     <% }}) %>
                 </div>  
         
-            
                 <p class="text-type">Fashion</p>
                 <div class="product-list">
                     <% productlist.forEach(product =>{ %>
                         <% if (product.productType == "Fashion"){ %>
-                            <form action="DetailController" method="get">
-                                <input type="hidden" name="action" value="detail">
-                                <input type="hidden" name="product_id" value="${animeproduct.getID()}">
+                            <form action="/detail/<%= product._id %>" method="get">
                                 <button type="submit"   style="background-color: transparent; border: none; ">
                                     <div id="1" class="product-component">
                                         <img class="poster"  src="../poster/<%= product.productImg%>" type="submit" alt="<%= product.productName%>">
@@ -174,7 +161,13 @@
                 </div>  
             
         </div>
+        <!---------------- END PRODUCT PLATE --------------------->
+
     </div>
+    <!---------------- END PRODUCT CONTAINER --------------------->
+
+
+    <!---------------- BEGIN FOOTER --------------------->
     <div class="footer">
         <div class="footer-name">
             <h1>WibuWorld</h1>
@@ -188,12 +181,9 @@
         </div>
         <h1>Powered by WeePeD</h1>
     </div>
-</body>
+    <!---------------- END FOOTER --------------------->
 
-<footer>
     <script type="text/javascript" src="../script/view/database.js"></script>
     <script type="text/javascript" src="../script/view/main.js"></script>
-
-</footer>
-
+</body>
 </html>

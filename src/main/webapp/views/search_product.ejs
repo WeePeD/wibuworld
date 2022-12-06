@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link class="icon" rel="shortcut icon" type="image/png" href="./picSource/icon2.png" />
+    <link rel="stylesheet" href="../style/reset.css">>
+    <link href="../style/clientStyle.css" rel="stylesheet" /> 
+    <link href="../style/header.css" rel="stylesheet">
+    <link href="../font/themify-icons.css" rel="stylesheet">
+    <link href="../style/footer.css" rel="stylesheet">
+    <title>WibuWorld</title>
+</head>
+<body style="background-image: url('../picSource/wallpaper.gif');background-repeat:repeat; background-size: 100%;">
+ <!---------------- BEGIN HEADER --------------------->
+ <div class="header">
+    <ul id="nav">
+        <li class="home-icon"><a href="/home"><img src="../picSource/icon2.png"></a></li>
+        <li><a href="/home">Home</a></li>
+        <li><a href="/select_product/Figure">Figure</a></li>
+        <li><a href="/select_product/Anime">Anime</a></li>
+        <li><a href="/select_product/Fashion">Fashion</a></li>
+        <li><a href="/select_product/Manga">Manga</a></li>
+        <li><a href="/select_product/Combo">Combo</a> </li>
+        <li>
+            <div class="signup-btn">
+                <a href="">Sign up</a>
+            </div>
+        </li>
+        <li>
+            <div class="signin-btn">
+                <a href="">Sign in</a>
+            </div>
+        </li>
+        <li>
+            <div class="search-btn">
+                <form action="/search_product" method="get">
+                    <input type="text" id="search-text" class="search-text" placeholder="Search">
+                    <button type="submit" class="search-icon"><i class="search-icon ti-search"></i></button>
+                </form>
+            </div>
+        </li>
+    </ul>
+</div>
+<!---------------- END HEADER --------------------->
+
+<!---------------- BEGIN CONTAINER --------------------->
+<div class="container">
+    
+    <!---------------- BEGIN SLIDER --------------------->
+    <div class="v4_722 ">
+        <div>
+            <p class="text-type">HOT DEALS</p>
+        </div>
+        <div class="slideshow-container">
+            <slider>
+            </slider>
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+        <br>
+
+        <div style="text-align:center; margin-top: 10px;">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </div>
+    <!---------------- END SLIDER --------------------->
+
+    <!---------------- BEGIN PRODUCT PLATE --------------------->
+    <div class="product-plate">
+        <p class="text-type">Items</p>
+        <div class="product-list">
+            <% productlist.forEach(product =>{ %>
+                <form action="/detail/<%= product._id %>" method="get">
+                    <button type="submit"   style="background-color: transparent; border: none; ">
+                        <div id="1" class="product-component">
+                            <img class="poster"  src="../poster/<%= product.productImg%>" type="submit" alt="<%= product.productName%>">
+                            
+                            <div class="text-title" type="submit"><%= product.productName %></div>
+                            <div class="cost text-title"><%= product.productPrice %></div>
+                        </div>
+                    </button>
+                </form>
+            <% }) %>
+        </div>
+    </div>
+    <!---------------- END PRODUCT PLATE --------------------->
+</div>
+<!---------------- END CONTAINER --------------------->
+
+
+<!---------------- BEGIN FOOTER --------------------->
+<div class="footer">
+    <div class="footer-name">
+        <h1>WibuWorld</h1>
+        <img src="../picSource/icon2.png">
+    </div>
+
+    <div class="icon">
+        <a href="https://github.com/WeePeD/wibuworld.git" class="ti-github"></a>
+        <a href="https://www.facebook.com/profile.php?id=100035920906901" class="ti-facebook"></a>
+        <a href="www.linkedin.com/in/weeped" class="ti-linkedin"></a>
+    </div>
+    <h1>Powered by WeePeD</h1>
+</div>
+<!---------------- END FOOTER --------------------->
+
+<script type="text/javascript" defer src="../script/view/database.js"></script>
+<script type="text/javascript" defer src="../script/view/main.js"></script>
+</body>
+</html>

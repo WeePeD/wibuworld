@@ -46,7 +46,7 @@ router.post('/', async(req,res) => {
 })
 
 //UPDATE
-router.put('/:id', async (req, res) => {
+router.post('/:id', async (req, res) => {
     try {
       const updatedProduct = await Product.findByIdAndUpdate(req.params.id,{$set: req.body},{ new: true });
       res.status(200)

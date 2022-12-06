@@ -15,7 +15,7 @@ function showSlides(n) {
   // Add element in slider
 
   var slider;
-  if (n > 5) {
+  if (n > 3) {
     slideIndex = 1
     n = slideIndex;
   }
@@ -43,51 +43,3 @@ function showSlides(n) {
   dots[slideIndex - 1].className += " active";
 
 }
-// Add film list
-// poster
-
-// for (var i = 0; i < data.length; i++) {
-//   // create poster
-//   var poster = document.createElement("img");
-//   poster.className = "poster";
-//   poster.setAttribute("id", data[i].id);
-//   poster.src = `./poster/${data[i].id}.jpg`;
-//   // Title
-//   var title = document.createElement("div");
-//   var textTitle = document.createAttribute("class");
-//   textTitle.value = "text-title";
-//   title.setAttribute("id", data[i].id);
-//   title.setAttributeNode(textTitle);
-//   title.textContent = `${data[i].name}`;
-//   // create a component div 
-//   var divMid = document.createElement("div");
-//   var attMid = document.createAttribute("class");
-//   divMid.setAttribute("id", data[i].id);
-//   attMid.value = "movie-component";
-//   divMid.setAttributeNode(attMid);
-
-//   // complete a component
-//   divMid.appendChild(poster);
-//   divMid.appendChild(title);
-//   document.getElementsByClassName("movie-list")[0].appendChild(divMid);
-
-// }
-
-// //Listener
-
-// var SliderTag = document.getElementsByTagName('slider')[0];
-// SliderTag.addEventListener('click', event => {
-//     var idReq = event.target.id;
-//     localStorage.setItem("idReq",idReq);
-//     location.href='./view.jsp';
-//     console.log(idReq);
-// });
-
-//  document.querySelectorAll('.movie-component').forEach(item => {
-//     item.addEventListener('click', event => {
-//         var idReq = event.target.id;
-//         localStorage.setItem("idReq",idReq);
-//         location.href='./view.html';
-//         console.log(idReq);
-//     })
-// });

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css"
+        integrity="sha384-7ynz3n3tAGNUYFZD3cWe5PDcE36xj85vyFkawcF6tIwxvIecqKvfwLiaFdizhPpN" crossorigin="anonymous">
+    <link class="icon" rel="shortcut icon" type="image/png" href="./picSource/icon2.png" /> --%>
+    <link rel="stylesheet" href="../style/reset.css">
+    <link rel="stylesheet" href="../style/clientStyle.css">
+    <link rel="stylesheet" href="../style/viewStyle.css">
+    <link rel="stylesheet" href="../style/header.css">
+    <link rel="stylesheet" href="../style/footer.css">
+    <title id="reference"></title>
+</head>
+
+<body style="background-image: url('../picSource/wallpaper.gif');background-repeat:repeat; background-size: 100%; ">
+     <!---------------- BEGIN HEADER --------------------->
+    <div class="header">
+        <ul id="nav">
+            <li class="home-icon"><a href="/home"><img src="../picSource/icon2.png"></a></li>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/select_product/Figure">Figure</a></li>
+            <li><a href="/select_product/Anime">Anime</a></li>
+            <li><a href="/select_product/Fashion">Fashion</a></li>
+            <li><a href="/select_product/Manga">Manga</a></li>
+            <li><a href="/select_product/Combo">Combo</a> </li>
+            <li>
+                <div class="signup-btn">
+                    <a href="">Sign up</a>
+                </div>
+            </li>
+            <li>
+                <div class="signin-btn">
+                    <a href="">Sign in</a>
+                </div>
+            </li>
+            <li><div class="search-btn">
+                <form action="/search_product" method="get">
+                    <input type="text" id="search" class="search-text" placeholder="Search">
+                    <button type="submit" class="search-icon"><i class="search-icon ti-search"></i></button>
+                </form>
+            </div>
+            </li>
+        </ul>
+    </div>
+    <!---------------- END HEADER --------------------->
+
+    
+    <div class="containerView">
+        <div id="view-plate">
+            <div id="poster"><img class="poster_detail" src="../poster/<%= product.productImg %>" type="submit" alt="<%= product.productName %>"></div>
+            
+            <div id="info">   
+                <div id="animeTitle"class="text-info">
+                    <div class="normal">
+                        Name:
+                    </div>
+                    <div id="name">
+                        <%= product.productName %>
+                    </div> 
+                </div><br>
+                
+                <div id="animeDescribe"class="text-info">
+                    <div class="normal">
+                        Describe: 
+                    </div>
+                    <ul>
+                    <% product.productDescription.forEach(item =>{ %>
+                        <% const description = item.toString()%>
+                        <li  id="describe"> <%= description %></li>
+                        <% }) %>
+                    </ul>
+                </div><br>
+                
+    
+                
+                <div id="animeCost"class="text-info">
+                    <div class="normal">
+                        Cost:
+                    </div>
+                    <div id="cost">
+                        <%= product.productPrice %>
+                    </div>
+                </div><br>
+        </div>
+    </div>
+    
+    <form action="/cart/<%= product._id %>" method="post">
+        <button class="fancy" type="submit" >       
+                <span class="top-key"></span>
+                <span class="text-buton" type="submit">Add to cart</span>
+                <span class="bottom-key-1"></span>
+                <span class="bottom-key-2"></span>
+        </button>
+    </form>
+
+
+
+    <!---------------- BEGIN FOOTER --------------------->
+    <div class="footer">
+       <div class="footer-name">
+           <h1>WibuWorld</h1>
+           <img src="../picSource/icon2.png">
+       </div>
+    
+       <div class="icon">
+           <a href="https://github.com/WeePeD/wibuworld.git" class="ti-github"></a>
+           <a href="https://www.facebook.com/profile.php?id=100035920906901" class="ti-facebook"></a>
+           <a href="www.linkedin.com/in/weeped" class="ti-linkedin"></a>
+       </div>
+       <h1>Powered by WeePeD</h1>
+    </div>
+    <!---------------- END FOOTER --------------------->
+
+</body>
+</html>
