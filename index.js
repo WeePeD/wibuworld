@@ -29,13 +29,12 @@ mongoose.connect(process.env.DB_URL,{
 
 //Import model
 const Product = require('./src/main/webapp/script/model/product')
-
+const Cart = require('./src/main/webapp/script/model/cart')
 //Router
-const authRouter = require('./src/main/webapp/script/route/auth')
 const productRouter = require('./src/main/webapp/script/route/product')
 const cartRouter = require('./src/main/webapp/script/route/cart')
-const orderRouter = require('./src/main/webapp/script/route/order');
-const product = require('./src/main/webapp/script/model/product');
+
+
 
 app.use(express.json())
 
@@ -59,16 +58,17 @@ app.get('/home',(req,res) => {
 
 app.get('/select_product/:productType', (req,res) => {
     const type = req.params.productType
+    console.log(type)
     Product.find({productType : type}, (err,products) => {
         if (err) res.json({message : err})
         res.render(__dirname+'/src/main/webapp/views/select_product',{ productlist : products})
     })
 })
 
-app.get('/search_product', (req,res)=>{
-    const anime = document.getElementById('search')
-    console.log(anime)
-    Product.find({productAnime : anime} , (err, products) => {
+app.post('/search_product', (req,res)=>{
+    const productAnime = JSON.stringify(req.body.productAnime)
+    console.log(productAnime)
+    Product.find({productAnime : productAnime} , (err, products) => {
         if (err) res.json({message : err})
         res.render(__dirname+'/src/main/webapp/views/search_product',{ productlist : products})
     })
@@ -82,10 +82,20 @@ app.get('/detail/:id', (req,res) => {
     })
 })
 
-app.use('/auth',authRouter)
+app.get('/cart' , (req,res) =>{
+    Cart.findOne({} ,(err,cart) =>{
+        if (err) res.json({message : err}) 
+        res.render(__dirname+'/src/main/webapp/views/cart',{cart:cart})
+    })
+})
+
+app.get('/addproduct', (req,res) =>{
+    res.render(__dirname+'/src/main/webapp/views/add_product')
+})
+
 app.use('/product',productRouter)
 app.use('/cart',cartRouter)
-app.use('/order',orderRouter)
+
 
 const listener = app.listen(process.env.PORT, () => {
     console.log('Backend server is running!');

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link class="icon" rel="shortcut icon" type="image/png" href="./picSource/icon2.png" />
+    <link rel="stylesheet" href="../style/reset.css">>
+    <link href="../style/clientStyle.css" rel="stylesheet" /> 
+    <link href="../style/header.css" rel="stylesheet">
+    <link href="../font/themify-icons.css" rel="stylesheet">
+    <link href="../style/footer.css" rel="stylesheet">
+    <link href="../style/checkout.css" rel="stylesheet">
+    <title>WibuWorld</title>
+</head>
+
+<body style="background-image: url('../picSource/wallpaper.gif');background-repeat:repeat; background-size: 100%; ">
+    <!---------------- BEGIN HEADER --------------------->
+    <div class="header">
+        <ul id="nav">
+            <li class="home-icon"><a href="/home"><img src="../picSource/icon2.png"></a></li>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/select_product/Figure">Figure</a></li>
+            <li><a href="/select_product/Anime">Anime</a></li>
+            <li><a href="/select_product/Fashion">Fashion</a></li>
+            <li><a href="/select_product/Manga">Manga</a></li>
+            <li><a href="/select_product/Combo">Combo</a> </li>
+            <li>
+                <div class="signup-btn">
+                    <a href="/cart">Cart</a>
+                </div>
+            </li>
+            <li>
+                <div class="signin-btn">
+                    <a href="">Sign in</a>
+                </div>
+            </li>
+            <li><div class="search-btn">
+              <form action="/search_product" method="post">
+                <input type="text" id="search-text" class="search-text" name="productAnime" placeholder="Search">
+                <button type="submit" class="search-icon"><i class="search-icon ti-search"></i></button>
+            </form>
+            </div>
+            </li>
+        </ul>
+    </div>
+    <!---------------- END HEADER --------------------->
+    
+    <!---------------- BEGIN CONTAINER --------------------->
+    <div class="cart-container">
+      <div class="Header">
+        <h3 class="Heading">Shopping Cart</h3>
+        <h5 class="Action"></h5>
+      </div>
+      <% for (i = 0; i < cart.products.length ; i++ ) { %>
+        <div class="Cart-Items">
+          <div class="product-img">
+            <img src="../poster/<%= cart.products[i].productImg %>" style=" height:120px " />
+          </div>
+
+          <div class="product-descrip">
+            <h1 class="title"><%= cart.products[i].productDescription %></h1>
+          </div>
+
+          <div class="product-price">
+            <%= cart.products[i].productPrice %>
+          </div>
+          <div class="counter">
+            <div class="btn"></div> 
+            <div class="count"> <%= cart.products[i].quantity %></div>
+            <div class="btn"></div> 
+          </div>
+
+          <div class="prices">
+            <div class="price"><%= cart.products[i].quantity * cart.products[i].productPrice %></div>
+            <div class="remove">
+              <form action="/cart/remove" method="post">
+                <input type="hidden" name="productId" value="cart.product[i]._id">
+                <button type="submit">
+                  Remove
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      <% } %>
+      <hr> 
+      <div class="checkout">
+        <div class="total">
+        <div>
+        <div class="Subtotal">Sub-Total</div>
+        <div class="items"><%= cart.products.length %> items</div>
+      </div>
+      <div class="total-amount"><%= cart.cartPrice %></div>
+      </div>
+        <button class="button">Checkout</button>
+      </div>
+    </div>
+    <!---------------- END CONTAINER --------------------->
+
+
+    <!---------------- BEGIN FOOTER --------------------->
+
+</body>
+
+</html>

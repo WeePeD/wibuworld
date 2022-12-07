@@ -20,7 +20,7 @@ router.get('/detail/:id', async(req,res) => {
 })
 
 //GET ALL
-router.get('/', async (req, res) => {
+router.get('/getall', async (req, res) => {
     try {
         carts = await Cart.find();
         res.status(200)
@@ -36,7 +36,8 @@ router.post('/', async (req, res) => {
     try {
         const newCart = Cart({
             userId : req.body.userId,
-            products : req.body.products
+            products : req.body.products,
+            cartPrice : req.body.cartPrice
         });
         const savedCart = await newCart.save();
         res.status(200)
@@ -50,9 +51,9 @@ router.post('/', async (req, res) => {
 //UPDATE
 router.post('/addtocart/:id', async (req, res) => {
     try {
-        const updatedCart = await Cart.findByIdAndUpdate(req.params.id,{$push: req.body},{ new: true });
+        const updatedCart = await Cart.findByIdAndUpdate(req.params.id,{$push : {products : req.body}},{ new: true });
         res.status(200)
-           .json(updatedCart);
+           .redirect('/cart')
     } catch (e) {
       res.status(500)
          .json(e);
@@ -71,4 +72,17 @@ router.delete('/:id', async(req,res) => {
     }
 })
 
+//DELETE Product
+router.post('/remove'), async(req,res) =>{
+    try {
+        const productId = req.body.productId
+        Cart.updateMany({},{$pull : {products : {productId : productId}}}, (err,data) =>{
+            if (err) res.send("this is" +err)
+            else res.send(data)
+        })
+    } catch (e) {
+        res.status(500)
+            .json(e)
+    }
+}
 module.exports = router

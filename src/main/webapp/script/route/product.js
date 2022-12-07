@@ -38,7 +38,7 @@ router.post('/', async(req,res) => {
         })
         const saveProduct = await newProduct.save()
         res.status(201)
-           .json(saveProduct)
+           .redirect('/home')
     } catch (e) {
         res.status(500)
         .json(e)
