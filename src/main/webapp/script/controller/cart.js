@@ -1,4 +1,5 @@
-const Cart = require('../model/cart')
+const { find } = require('../model/cart');
+const Cart = require('../model/cart');
 
 class CartController {
      
@@ -51,19 +52,30 @@ class CartController {
     };
 
     //Update
-    async updateCart(req,res) {
+    async addProductCart(req,res) {
         try {
-            const updatedCart = await Cart.findByIdAndUpdate(req.params.id,{$push : {products : req.body}},{ new: true });
+            const findCart = await Cart.findById(req.params.id);
+            for(let i = 0; i < findCart.products.length; i++)
+            {
+                if (req.body.products.productId == findCart.products[i].productId)
+                {    
+                    findCart.products[i].quantity += req.body.products.quantity
+                    console.log(findCart.products[i])
+                    findCart.save()
+                    break;
+                }    
+            }
+            await Cart.findByIdAndUpdate(req.params.id,{$push : {products : req.body}},{ new: true });
             res.status(200)
                .redirect('/cart')
-        } catch (e) {
+        } catch (error) {
           res.status(500)
-             .json(e);
+             .json({err: error});
         }
     };
 
     //Delete
-    async deleteCart(req,res) {
+    async removeProductCart(req,res) {
         try {
             await Cart.findByIdAndDelete(req.params.id)
             res.status(200)

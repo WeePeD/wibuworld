@@ -72,7 +72,7 @@
           <div class="prices">
             <div class="price"><%= cart.products[i].quantity * cart.products[i].productPrice %></div>
             <div class="remove">
-              <form action="/cart/remove" method="post">
+              <form action="/cart/removeProductCart/:id" method="post">
                 <input type="hidden" name="productId" value="cart.product[i]._id">
                 <button type="submit">
                   Remove
