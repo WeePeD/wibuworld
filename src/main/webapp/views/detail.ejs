@@ -8,25 +8,25 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css"
         integrity="sha384-7ynz3n3tAGNUYFZD3cWe5PDcE36xj85vyFkawcF6tIwxvIecqKvfwLiaFdizhPpN" crossorigin="anonymous">
     <link class="icon" rel="shortcut icon" type="image/png" href="./picSource/icon2.png" /> --%>
-    <link rel="stylesheet" href="../style/reset.css">
-    <link rel="stylesheet" href="../style/clientStyle.css">
-    <link rel="stylesheet" href="../style/viewStyle.css">
-    <link rel="stylesheet" href="../style/header.css">
-    <link rel="stylesheet" href="../style/footer.css">
+    <link rel="stylesheet" href="/style/reset.css">
+    <link rel="stylesheet" href="/style/clientStyle.css">
+    <link rel="stylesheet" href="/style/viewStyle.css">
+    <link rel="stylesheet" href="/style/header.css">
+    <link rel="stylesheet" href="/style/footer.css">
     <title id="reference"></title>
 </head>
 
-<body style="background-image: url('../picSource/wallpaper.gif');background-repeat:repeat; background-size: 100%; ">
+<body style="background-image: url('/picSource/wallpaper.gif');background-repeat:repeat; background-size: 100%; ">
      <!---------------- BEGIN HEADER --------------------->
     <div class="header">
         <ul id="nav">
-            <li class="home-icon"><a href="/home"><img src="../picSource/icon2.png"></a></li>
+            <li class="home-icon"><a href="/home"><img src="/picSource/icon2.png"></a></li>
             <li><a href="/home">Home</a></li>
-            <li><a href="/select_product/Figure">Figure</a></li>
-            <li><a href="/select_product/Anime">Anime</a></li>
-            <li><a href="/select_product/Fashion">Fashion</a></li>
-            <li><a href="/select_product/Manga">Manga</a></li>
-            <li><a href="/select_product/Combo">Combo</a> </li>
+            <li><a href="/home/Figure">Figure</a></li>
+            <li><a href="/home/Anime">Anime</a></li>
+            <li><a href="/home/Fashion">Fashion</a></li>
+            <li><a href="/home/Manga">Manga</a></li>
+            <li><a href="/home/Combo">Combo</a> </li>
             <li>
                 <div class="signup-btn">
                     <a href="/cart">Cart</a>
@@ -38,7 +38,7 @@
                 </div>
             </li>
             <li><div class="search-btn">
-                <form action="/search_product" method="post">
+                <form action="/home/search" method="get">
                     <input type="text" id="search-text" class="search-text" name="productAnime" placeholder="Search">
                     <button type="submit" class="search-icon"><i class="search-icon ti-search"></i></button>
                 </form>
@@ -51,7 +51,7 @@
     
     <div class="containerView">
         <div id="view-plate">
-            <div id="poster"><img class="poster_detail" src="../poster/<%= product.productImg %>" type="submit" alt="<%= product.productName %>"></div>
+            <div id="poster"><img class="poster_detail" src="/poster/<%= product.productImg %>" type="submit" alt="<%= product.productName %>"></div>
             
             <div id="info">   
                 <div id="animeTitle"class="text-info">
@@ -109,7 +109,7 @@
     <div class="footer">
        <div class="footer-name">
            <h1>WibuWorld</h1>
-           <img src="../picSource/icon2.png">
+           <img src="/picSource/icon2.png">
        </div>
     
        <div class="icon">

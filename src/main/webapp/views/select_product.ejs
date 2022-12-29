@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <link class="icon" rel="shortcut icon" type="image/png" href="./picSource/icon2.png" />
-    <link rel="stylesheet" href="../style/reset.css">>
-    <link href="../style/clientStyle.css" rel="stylesheet" /> 
-    <link href="../style/header.css" rel="stylesheet">
-    <link href="../font/themify-icons.css" rel="stylesheet">
-    <link href="../style/footer.css" rel="stylesheet">
+    <link rel="stylesheet" href="/style/reset.css">>
+    <link href="/style/clientStyle.css" rel="stylesheet" /> 
+    <link href="/style/header.css" rel="stylesheet">
+    <link href="/font/themify-icons.css" rel="stylesheet">
+    <link href="/style/footer.css" rel="stylesheet">
     <title>WibuWorld</title>
 </head>
 
-<body style="background-image: url('../picSource/wallpaper.gif');background-repeat:repeat; background-size: 100%; ">
+<body style="background-image: url('/picSource/wallpaper.gif');background-repeat:repeat; background-size: 100%; ">
    <!---------------- BEGIN HEADER --------------------->
    <div class="header">
         <ul id="nav">
-            <li class="home-icon"><a href="/home"><img src="../picSource/icon2.png"></a></li>
+            <li class="home-icon"><a href="/home"><img src="/picSource/icon2.png"></a></li>
             <li><a href="/home">Home</a></li>
-            <li><a href="/select_product/Figure">Figure</a></li>
-            <li><a href="/select_product/Anime">Anime</a></li>
-            <li><a href="/select_product/Fashion">Fashion</a></li>
-            <li><a href="/select_product/Manga">Manga</a></li>
-            <li><a href="/select_product/Combo">Combo</a> </li>
+            <li><a href="/home/Figure">Figure</a></li>
+            <li><a href="/home/Anime">Anime</a></li>
+            <li><a href="/home/Fashion">Fashion</a></li>
+            <li><a href="/home/Manga">Manga</a></li>
+            <li><a href="/home/Combo">Combo</a> </li>
             <li>
                 <div class="signup-btn">
                     <a href="/cart">Cart</a>
@@ -34,7 +34,7 @@
             </li>
             <li>
                 <div class="search-btn">
-                    <form action="/search_product" method="post">
+                    <form action="/home/search" method="get">
                         <input type="text" id="search-text" class="search-text" name="productAnime" placeholder="Search">
                         <button type="submit" class="search-icon"><i class="search-icon ti-search"></i></button>
                     </form>
@@ -75,10 +75,10 @@
             <p class="text-type">Items</p>
             <div class="product-list">
                 <% productlist.forEach(product =>{ %>
-                    <form action="/detail/<%= product._id %>" method="get">
+                    <form action="/home/detail/<%= product._id %>" method="get">
                         <button type="submit"   style="background-color: transparent; border: none; ">
                             <div id="1" class="product-component">
-                                <img class="poster"  src="../poster/<%= product.productImg%>" type="submit" alt="<%= product.productName%>">
+                                <img class="poster"  src="/poster/<%= product.productImg%>" type="submit" alt="<%= product.productName%>">
                                 
                                 <div class="text-title" type="submit"><%= product.productName %></div>
                                 <div class="cost text-title"><%= product.productPrice %></div>
@@ -97,7 +97,7 @@
     <div class="footer">
         <div class="footer-name">
             <h1>WibuWorld</h1>
-            <img src="../picSource/icon2.png">
+            <img src="/picSource/icon2.png">
         </div>
     
         <div class="icon">
@@ -109,8 +109,8 @@
     </div>
     <!---------------- END FOOTER --------------------->
 
-    <script type="text/javascript" defer src="../script/view/database.js"></script>
-    <script type="text/javascript" defer src="../script/view/main.js"></script>
+    <script type="text/javascript" defer src="/script/view/database.js"></script>
+    <script type="text/javascript" defer src="/script/view/main.js"></script>
 </body>
 
 

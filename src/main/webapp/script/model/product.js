@@ -9,7 +9,6 @@ const productSchema = new mongoose.Schema({
     productDescription : [{ type: String}],
     productImg : { type: String, require: true},
     productPrice : { type: Number, require: true},
-
 },
 {
     timestamp : true
