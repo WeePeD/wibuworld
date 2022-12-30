@@ -6,6 +6,6 @@ router.post('/',cartController.createCart)
 router.get('/:id',cartController.getCart)
 router.get('/',cartController.index)
 router.post('/addproduct/:id',cartController.addProductCart)
-router.post('/removeproduct/:id',cartController.removeProductCartCart)
+router.post('/removeproduct/:id',cartController.removeProductCart)
 
 module.exports = router

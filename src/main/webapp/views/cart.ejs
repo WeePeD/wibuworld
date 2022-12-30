@@ -72,8 +72,9 @@
           <div class="prices">
             <div class="price"><%= cart.products[i].quantity * cart.products[i].productPrice %></div>
             <div class="remove">
-              <form action="/cart/removeProductCart/:id" method="post">
-                <input type="hidden" name="productId" value="cart.product[i]._id">
+              <form action="/cart/removeproduct/638fec4888896ebf43d52748" method="post">
+                <input type="hidden" name="productId" value="<%=cart.products[i].productId%>">
+                <input type="hidden" name="productName" value="<%=cart.products[i].productName%>">
                 <button type="submit">
                   Remove
                 </button>

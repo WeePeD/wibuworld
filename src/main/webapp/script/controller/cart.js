@@ -54,18 +54,20 @@ class CartController {
     //Update
     async addProductCart(req,res) {
         try {
-            const findCart = await Cart.findById(req.params.id);
-            for(let i = 0; i < findCart.products.length; i++)
-            {
-                if (req.body.products.productId == findCart.products[i].productId)
+            const findCart = await Cart.findById(req.params.id)
+            const check = false
+            for(let i = 0; i < findCart.products.length; i++){
+                if (req.body.productId == findCart.products[i].productId)
                 {    
-                    findCart.products[i].quantity += req.body.products.quantity
-                    console.log(findCart.products[i])
+                    findCart.products[i].quantity += parseInt(req.body.quantity)
                     findCart.save()
-                    break;
+                    check = true
+                    break
                 }    
             }
-            await Cart.findByIdAndUpdate(req.params.id,{$push : {products : req.body}},{ new: true });
+            if (check == false){
+                await Cart.findByIdAndUpdate(req.params.id,{$push : {products : req.body}},{ new: true });
+            }
             res.status(200)
                .redirect('/cart')
         } catch (error) {
@@ -76,13 +78,21 @@ class CartController {
 
     //Delete
     async removeProductCart(req,res) {
-        try {
-            await Cart.findByIdAndDelete(req.params.id)
+        try {   
+            const findCart = await Cart.findById(req.params.id)
+            console.log(req.body.productName)
+            console.log(typeof req.body.productName)
+            for (let i = 0; i < findCart.products.length; i++){
+                if (toString(req.body.productName) == findCart.products[i].productName){
+                    await Cart.findByIdAndUpdate(req.params.id,{$pull : {products : {productName : toString(req.body.productName)}}})
+                    break
+                } 
+            }
             res.status(200)
-               .json({message : `Cart id:${id} has been deleted !`})
+               .redirect('/cart')
         } catch (e) {
             res.status(500)
-               .json(e)
+               .json({err : "Error"})
         }
     };
 }
