@@ -51,40 +51,44 @@ class CartController {
         }
     };
 
-    //Update
-    async addProductCart(req,res) {
-        try {
-            const findCart = await Cart.findById(req.params.id)
-            const check = false
-            for(let i = 0; i < findCart.products.length; i++){
-                if (req.body.productId == findCart.products[i].productId)
-                {    
-                    findCart.products[i].quantity += parseInt(req.body.quantity)
-                    findCart.save()
-                    check = true
-                    break
-                }    
-            }
-            if (check == false){
-                await Cart.findByIdAndUpdate(req.params.id,{$push : {products : req.body}},{ new: true });
-            }
-            res.status(200)
-               .redirect('/cart')
-        } catch (error) {
-          res.status(500)
-             .json({err: error});
+   //Update
+   async addProductCart(req,res) {
+    try {
+        const findCart = await Cart.findById(req.params.id)
+        const quantity = parseInt(req.body.quantity)
+        let check = false
+        for(i = 0; i < findCart.products.length; i++){
+            console.log("this is test1 " +check)
+            if (req.body.productId == findCart.products[i].productId){    
+                console.log("this is test2 " +check)
+                check = true
+                console.log("this is test3 " +check)
+                findCart.products[i].quantity += quantity
+                findCart.save()
+                break
+            }    
         }
-    };
+        
+        if (check == false){
+            await Cart.findByIdAndUpdate(req.params.id,{$push : {products : req.body}},{ new: true });
+        }
+        res.status(200)
+            .redirect('/cart')
+    } catch (error) {
+      res.status(500)
+         .json({err: error});
+    }
+};
+
 
     //Delete
     async removeProductCart(req,res) {
         try {   
             const findCart = await Cart.findById(req.params.id)
-            console.log(req.body.productName)
-            console.log(typeof req.body.productName)
-            for (let i = 0; i < findCart.products.length; i++){
-                if (toString(req.body.productName) == findCart.products[i].productName){
-                    await Cart.findByIdAndUpdate(req.params.id,{$pull : {products : {productName : toString(req.body.productName)}}})
+            for (i = 0; i < findCart.products.length; i++){
+                
+                if (req.body.productId == findCart.products[i].productId){
+                    await Cart.findByIdAndUpdate(req.params.id,{$pull: {products: {productName: req.body.productName}}})
                     break
                 } 
             }
