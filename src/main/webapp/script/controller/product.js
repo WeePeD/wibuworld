@@ -25,36 +25,36 @@ class ProductController{
     //Get
     async getProduct(req,res) {
         try {
-            const product = await Product.findById(req.params.id);
+            const product = await Product.findById(req.params.id)
             res.status(200)
-               .json(product);
+               .json(product)
           } catch (e) {
             res.status(500)
-               .json(e);
+               .json(e)
           }
     };
 
     //Get all
     async getAllProduct(req,res) {
         try {
-            products = await Product.find();
+            const products = await Product.find()
             res.status(200)
-               .json(products);
+               .json(products)
         } catch (e) {
             res.status(500)
-               .json(e);
+               .json(e)
         }
     };
 
     //Update
     async updateProduct(req,res) {
         try {
-            const updatedProduct = await Product.findByIdAndUpdate(req.params.id,{$set: req.body},{ new: true });
+            const updatedProduct = await Product.findByIdAndUpdate(req.params.id,{$set: req.body},{ new: true })
             res.status(200)
-               .json(updatedProduct);
+               .json(updatedProduct)
           } catch (e) {
             res.status(500)
-               .json(e);
+               .json(e)
           }
     };
 

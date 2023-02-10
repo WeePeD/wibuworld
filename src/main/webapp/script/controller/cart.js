@@ -1,4 +1,3 @@
-const { find } = require('../model/cart');
 const Cart = require('../model/cart');
 
 class CartController {
@@ -18,12 +17,12 @@ class CartController {
                 products : req.body.products,
                 cartPrice : req.body.cartPrice
             });
-            const savedCart = await newCart.save();
+            const savedCart = await newCart.save()
             res.status(200)
-                .json(savedCart);
+                .json(savedCart)
         } catch (e) {
             res.status(500)
-                .json(e);
+                .json(e)
         }
     };
 
@@ -35,19 +34,7 @@ class CartController {
                .json(cart)
         } catch (e) {
             res.status(500)
-             .json(e);
-        }
-    };
-
-    //Get all
-    async getAllCart(req,res) {
-        try {
-            carts = await Cart.find();
-            res.status(200)
-               .json(carts);
-        } catch (e) {
-            res.status(500)
-               .json(e);
+             .json(e)
         }
     };
 
@@ -70,15 +57,15 @@ class CartController {
         }
         
         if (check == false){
-            await Cart.findByIdAndUpdate(req.params.id,{$push : {products : req.body}},{ new: true });
+            await Cart.findByIdAndUpdate(req.params.id,{$push : {products : req.body}},{ new: true })
         }
         res.status(200)
             .redirect('/cart')
-    } catch (error) {
-      res.status(500)
-         .json({err: error});
-    }
-};
+        } catch (error) {
+            res.status(500)
+               .json({err: error})
+        }
+    };
 
 
     //Delete

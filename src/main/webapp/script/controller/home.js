@@ -1,4 +1,4 @@
-const Product = require('../model/product')
+const Product = require('../model/product');
 
 class HomeController {
     
@@ -19,7 +19,6 @@ class HomeController {
 
     productType (req,res) {
         const type = req.params.productType
-        console.log(type)
         Product.find({productType : type}, (err,products) => {
             if (err) res.json({message : err})
             res.render('select_product',{ productlist : products})

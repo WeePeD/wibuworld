@@ -1,6 +1,6 @@
-const express = require('express')
-const router = express.Router()
-const cartController = require('../controller/cart')
+const express = require('express');
+const router = express.Router();
+const cartController = require('../controller/cart');
 
 router.post('/',cartController.createCart)
 router.get('/:id',cartController.getCart)

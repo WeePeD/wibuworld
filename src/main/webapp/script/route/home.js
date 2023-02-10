@@ -1,6 +1,6 @@
-const express = require('express')
-const router = express.Router()
-const homeController = require('../controller/home')
+const express = require('express');
+const router = express.Router();
+const homeController = require('../controller/home');
 
 router.get('/', homeController.index )
 router.get('/detail/:id',homeController.detail)

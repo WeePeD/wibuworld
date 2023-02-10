@@ -1,5 +1,6 @@
-const router = require('express').Router()
-const Order = require('../model/order')
+const express = require('express');
+const router = express.Router();
+const Order = require('../model/order');
 
 //GET
 router.get('/detail/:id', async(req,res) => {
@@ -18,7 +19,7 @@ router.get('/', async (req, res) => {
     try {
         orders = await Order.find();
         res.status(200)
-           .json(orders);
+           .json(orders)
     } catch (e) {
         res.status(500)
            .json(e);
@@ -32,7 +33,7 @@ router.post('/', async (req, res) => {
             userId : req.body.userId,
             products : req.body.products,
             address : req.body.address
-        });
+        })
         const savedOrder = await newOrder.save();
         res.status(200)
             .json(savedOrder);
@@ -45,7 +46,7 @@ router.post('/', async (req, res) => {
 //UPDATE
 router.put('/:id', async (req, res) => {
     try {
-      const updatedOrder = await Order.findByIdAndUpdate(req.params.id,{$set: req.body},{ new: true });
+      const updatedOrder = await Order.findByIdAndUpdate(req.params.id,{$set: req.body},{ new: true })
       res.status(200)
          .json(updatedOrder);
     } catch (e) {

@@ -1,11 +1,13 @@
 const mongoose = require('mongoose');
 
-const userSchema = mongoose.Schema({
-    userName : { type: String, require: true, unique: true},
-    userEmail: { type: String, require: true, unique: true},
-    userPassword: { type: String, require: true, unique: true},
+const userSchema = new mongoose.Schema({
+    userName : { type: String, require: true, min: 6, max: 255},
+    email: { type: String, require: true, min: 6, max: 255},
+    password: { type: String, require: true, min: 6, max: 255},
     isAdmin: { type: Boolean, default: false},
-    userAddress: { type: String, require: true}
+    address: { type: String, require: true},
+    status: { type: String, enum:['Pending','Active'], default: 'Pending'},
+    confirmationCode: { type: String}
 },
 {
     timestamp : true

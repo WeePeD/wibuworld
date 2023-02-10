@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
-const product = class{
 
-}
 const productSchema = new mongoose.Schema({
     productName : { type: String , require: true},
     productType : { type: String , require: true},
